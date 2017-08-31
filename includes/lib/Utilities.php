@@ -41,7 +41,7 @@ class Utilities {
 						'<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="' . self::generateID() . 
 						'" Version="2.0" IssueInstant="' . self::generateTimestamp() . 
 						'" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" AssertionConsumerServiceURL="' . $acsUrl . 
-						'" ><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">' . $issuer . 
+						'" Destination="' . get_option("saml_login_url") . '"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">' . $issuer . 
 						'</saml:Issuer></samlp:AuthnRequest>';
 		$deflatedStr = gzdeflate($requestXmlStr);
 		$base64EncodedStr = base64_encode($deflatedStr);
